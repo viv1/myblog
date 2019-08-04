@@ -19,7 +19,7 @@
 {% if page %}
 {% editable page.title %}{{ page.title }}{% endeditable %}
 {% else %}
-{% trans "Blog" %}
+{% trans "Articles" %}
 {% endif %}
 {% endblock %}
 
@@ -74,9 +74,9 @@
 {% for blog_post in blog_posts.object_list %}
 {% block blog_post_list_post_title %}
 {% editable blog_post.title %}
-<h2>
+<h3>
     <a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
-</h2>
+</h3>
 {% endeditable %}
 {% endblock %}
 {% block blog_post_list_post_metainfo %}
