@@ -16,13 +16,13 @@
 {% editable blog_post.title %}{{ blog_post.title }}{% endeditable %}
 {% endblock %}
 
-{% block breadcrumb_menu %}
+<!-- {% block breadcrumb_menu %}
 {{ block.super }}
 <li class="active">{{ blog_post.title }}</li>
-{% endblock %}
+{% endblock %} -->
 
 {% block main %}
-
+<br>
 {% block blog_post_detail_postedby %}
 {% editable blog_post.publish_date %}
 <h6 class="post-meta">
@@ -41,9 +41,6 @@
             (<a href="{{ blog_post.get_absolute_url }}#disqus_thread"
                 data-disqus-identifier="{% disqus_id_for blog_post %}">{% spaceless %}
                 {% trans "Comments" %}
-            {% endspaceless %}</a>)
-        {% else %}(<a href="#comments">{% spaceless %}
-            {% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }} comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
             {% endspaceless %}</a>)
         {% endif %}
     {% endif %}
@@ -78,14 +75,6 @@
 </ul>
 {% endspaceless %}
 {% endif %}
-{% endblock %}
-
-{% block blog_post_detail_rating %}
-<div class="panel panel-default rating">
-    <div class="panel-body">
-    {% rating_for blog_post %}
-    </div>
-</div>
 {% endblock %}
 
 {% block blog_post_detail_sharebuttons %}
@@ -125,9 +114,4 @@
 </div>
 {% endif %}
 {% endblock %}
-
-{% block blog_post_detail_comments %}
-{% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
-{% endblock %}
-
 {% endblock %}
