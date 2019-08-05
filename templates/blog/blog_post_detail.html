@@ -101,7 +101,23 @@
 {% endwith %}
 </ul>
 {% endblock %}
+<!--  Below is the section for Disqus thread -->
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.origin + "{{blog_post.get_absolute_url}}";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier =  '{% disqus_id_for blog_post %}';; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
 
+        s.src = 'https://viv1-2.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% block blog_post_detail_related_posts %}
 {% if related_posts %}
 <div id="related-posts">
