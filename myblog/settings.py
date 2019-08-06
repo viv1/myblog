@@ -196,6 +196,10 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 
 COMMENTS_DISQUS_SHORTNAME = 'viv1'
 
+RATINGS_ACCOUNT_REQUIRED = False  # will be treated as False, if not present here, but added it for visibility
+
+RATINGS_RANGE = range(1, 11)  # range 1-10
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
