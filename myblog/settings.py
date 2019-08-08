@@ -79,7 +79,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = False
 
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
@@ -194,12 +194,6 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_APP
 
-COMMENTS_DISQUS_SHORTNAME = 'viv1'
-
-RATINGS_ACCOUNT_REQUIRED = False  # will be treated as False, if not present here, but added it for visibility
-
-RATINGS_RANGE = range(1, 11)  # range 1-10
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -258,7 +252,6 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    # "mezzanine.accounts",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
