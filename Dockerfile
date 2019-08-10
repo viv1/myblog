@@ -19,5 +19,4 @@ RUN source venv/bin/activate
 RUN python3 -m pip install -r requirements.txt
 
 EXPOSE 8000
-
-CMD ["python3", "manage.py", "runserver"]
+# https://stackoverflow.com/questions/22111060/what-is-the-difference-between-expose-and-publish-in-docker

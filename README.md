@@ -34,6 +34,10 @@ docker-machine --version
 ```
 docker build --build-arg GITHUB_AUTH_TOKEN=<token_id> --build-arg GITHUB_LOCAL_SETTINGS_FILE_NAME=local_settings_dev.py -t dev_app -f Dockerfile .
 
+// NOTE: if production, use local_settings_prod.py
+
+// NOTE: the local_settings.py is stored separately and hidden, only accessible by the owner, since it contains sensitive information.
+
 docker run -p 8000:8000 -itd dev_app:latest
 
 // get <container_id>
@@ -43,14 +47,11 @@ docker ps
 docker exec -it <container_id> /bin/bash
 
 //If doing for first time, run migrations
-RUN python3 manage.py createdb --nodata      ( --noinput for default username: admin and password: password)
+python3 manage.py createdb --nodata      ( --noinput for default username: admin and password: password)
 
 // start server
-RUN python3 manage.py runserver
+python3 manage.py runserver
 
-// NOTE: if production, use local_settings_prod.py
-
-// NOTE: the local_settings.py is stored separately and hidden, only accessible by the owner, since it contains sensitive information.
 ```
 
 4. If not using Dockerfile directly, can follow the steps inside it as follows: 
@@ -96,7 +97,7 @@ pip install -r requirements.txt
 # pip install mysqlclient==1.4.2.post1
 
 // run migrations, if doing set up for the first time
-python3 manage.py createdb --nodata
+python3 manage.py createdb --nodata       ( --noinput for default username: admin and password: password)
 
 // start server
 python3 manage.py runserver
