@@ -49,8 +49,10 @@ docker exec -it <container_id> /bin/bash
 //If doing for first time, run migrations
 python3 manage.py createdb --nodata      ( --noinput for default username: admin and password: password)
 
-// start server
-python3 manage.py runserver
+// start server and make it accessible from host
+python3 manage.py runserver 0.0.0.0:8000
+// refer: https://stackoverflow.com/questions/26423984/unable-to-connect-to-flask-app-on-docker-from-host
+// and https://stackoverflow.com/questions/23639085/django-change-default-runserver-port
 
 ```
 
@@ -62,6 +64,7 @@ python3 manage.py runserver
 //start a docker container with ubuntu base image, and log into it:
 docker run -p 8000:8000 -itd ubuntu:18.04
 // seems like "-it" is required, o/w container stops right away
+// https://stackoverflow.com/questions/41916435/practically-what-is-the-difference-between-docker-run-dit-itd-vs-docker-run
 
 // get container id
 docker ps 
@@ -99,8 +102,10 @@ pip install -r requirements.txt
 // run migrations, if doing set up for the first time
 python3 manage.py createdb --nodata       ( --noinput for default username: admin and password: password)
 
-// start server
-python3 manage.py runserver
+// start server and make it accessible from host
+python3 manage.py runserver 0.0.0.0:8000
+// refer: https://stackoverflow.com/questions/26423984/unable-to-connect-to-flask-app-on-docker-from-host
+// and https://stackoverflow.com/questions/23639085/django-change-default-runserver-port
 ```
 
 5. You should then be able to browse to `<app_location>/admin/` and log in using the default account (`username: admin, password: default`). If you’d like to specify a different username and password during set up, simply exclude the --noinput option included above when running createdb.
