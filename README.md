@@ -2,6 +2,17 @@
 
 This is the source code for my blog.
 
+# Setup instructions for DB:
+
+1. Install mysql version 8.x
+2. Login to mysql shell, and create database for blog
+`create database <db_name>;`
+3. Update `DATABASE` property in `myblog/settings`(or adding it to `myblog/local_settings.py`) by updating as follows:
+    1. "ENGINE": "django.db.backends.mysql"
+    2. "NAME": <db_name>
+    3. "USER": <db_username>
+    4. "PASSWORD": <db_password>
+    5. "HOST": <host_ip> ....host_ip will be localhost during local development, and your hosted DB location in production. 
 
 # Setup instructions:
 
@@ -25,6 +36,17 @@ docker build --build-arg GITHUB_AUTH_TOKEN=<token_id> --build-arg GITHUB_LOCAL_S
 
 docker run -p 8000:8000 -itd dev_app:latest
 
+// get <container_id>
+docker ps
+
+//log in to the container
+docker exec -it <container_id> /bin/bash
+
+//If doing for first time, run migrations
+RUN python3 manage.py createdb --nodata      ( --noinput for default username: admin and password: password)
+
+// start server
+RUN python3 manage.py runserver
 
 // NOTE: if production, use local_settings_prod.py
 
@@ -72,7 +94,16 @@ pip install -r requirements.txt
 # pip install Django==1.11.22
 # pip install Mezzanine==4.3.1
 # pip install mysqlclient==1.4.2.post1
+
+// run migrations, if doing set up for the first time
+python3 manage.py createdb --nodata
+
+// start server
+python3 manage.py runserver
 ```
+
+5. You should then be able to browse to `<app_location>/admin/` and log in using the default account (`username: admin, password: default`). If you’d like to specify a different username and password during set up, simply exclude the --noinput option included above when running createdb.
+
 
 -----------------
 
