@@ -128,3 +128,9 @@ python3 manage.py runserver 0.0.0.0:8000
 2. `source not found` when activating virtualenv: `source venv/bin/activate`
 
     [Solution](https://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work)
+
+3. `Database returned an invalid datetime value. Are time zone definitions for your database installed?` on accessing some pages.
+
+    [Solution taken from here](https://stackoverflow.com/questions/21351251/database-returned-an-invalid-value-in-queryset-dates)
+    Basically, load timezone info. On MacOs, you can `mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql`
+    Restart mysql: `brew services restart mysql`
