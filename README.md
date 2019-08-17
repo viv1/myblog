@@ -12,7 +12,9 @@ This is the source code for my blog.
     2. "NAME": <db_name>
     3. "USER": <db_username>
     4. "PASSWORD": <db_password>
-    5. "HOST": <host_ip> ....host_ip will be localhost during local development, and your hosted DB location in production. 
+    5. "HOST": <host_ip> ....host_ip will be localhost during local development, and your hosted DB location in production.
+
+Note: Check out 3rd point of troubleshooting. Run that to avoid facing the issue later.
 
 # Setup instructions:
 
