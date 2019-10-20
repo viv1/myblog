@@ -28,16 +28,16 @@
 {% endcompress %}
 
 {% compress js %}
-<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
-<script src="{% static "js/bootstrap.js" %}"></script>
-<script src="{% static "js/bootstrap-extras.js" %}"></script>
+<script src='{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}'></script>
+<script src='{% static "js/bootstrap.js" %}'></script>
+<script src='{% static "js/bootstrap-extras.js" %}'></script>
 {% block extra_js %}{% endblock %}
 {% endcompress %}
 
 {% block extra_head %}{% endblock %}
 </head>
 
-<body id="{% block body_id %}body{% endblock %}">
+<body id="{% block body_id %}body{% endblock %}" style="background-color: #ccc1af;">
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 <div class="container">
@@ -104,7 +104,7 @@
 </div>
 </div>
 
-<footer>
+<footer style="background-color: #c7bfbf">
 <div class="container">
 <div class="row">
 <p class="site-info text-center">
